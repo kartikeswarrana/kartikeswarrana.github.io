@@ -1,0 +1,405 @@
+/* ----------------------
+   Design system / variables
+   Light theme (default)
+   ---------------------- */
+:root{
+  /* Light theme */
+  --bg: #f5f5f7;                 /* soft neutral background */
+  --card: #ffffff;               /* card background */
+  --card-alt: #f9fafb;
+  --muted: #6b7280;              /* secondary text */
+  --text-main: #111827;          /* primary text */
+  --border-subtle: rgba(15,23,42,0.06);
+
+  /* Elegant gold accent */
+  --accent-gold: #d4af37;        /* classic gold */
+  --accent-gold-soft: #f5d48a;   /* soft highlight gold */
+  --accent-muted: #c4a15a;       /* muted gold */
+
+  /* Other accents for subtle gradients */
+  --accent1: #d4af37;
+  --accent2: #f5d48a;
+  --accent3: #ef4444;            /* small attention color (e.g. status) */
+
+  --glass: rgba(255,255,255,0.75);
+  --max-width: 1200px;
+  --radius: 14px;
+  --shadow-soft: 0 18px 45px rgba(15,23,42,0.08);
+}
+
+/* Dark theme (auto, if OS is in dark mode) */
+@media (prefers-color-scheme: dark) {
+  :root{
+    --bg:#050816;                 /* refined deep navy */
+    --card:#0b1020;
+    --card-alt:#050816;
+    --muted:#9ca3af;
+    --text-main:#e5e7eb;
+    --border-subtle: rgba(148,163,184,0.22);
+
+    --accent-gold:#f1c453;        /* warmer gold */
+    --accent-gold-soft:#f6d89b;
+    --accent-muted:#d9b869;
+
+    --accent1:#f1c453;
+    --accent2:#f6d89b;
+    --accent3:#fb7185;
+
+    --glass: rgba(15,23,42,0.9);
+    --shadow-soft: 0 24px 60px rgba(0,0,0,0.85);
+  }
+}
+
+/* ----------------------
+   Base / typography
+   ---------------------- */
+*{box-sizing:border-box}
+html,body{height:100%;}
+
+body{
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  margin:0;
+  background:
+    radial-gradient(900px 600px at 0% 0%, rgba(212,175,55,0.12), transparent),
+    radial-gradient(900px 600px at 100% 100%, rgba(245,212,138,0.14), transparent),
+    var(--bg);
+  color:var(--text-main);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+  padding-bottom:60px;
+}
+
+.wrap{
+  max-width:var(--max-width);
+  margin:32px auto;
+  padding:20px;
+}
+
+/* ----------------------
+   Header / brand
+   ---------------------- */
+header.site-header{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  justify-content:space-between;
+  background:
+    linear-gradient(135deg,
+      rgba(212,175,55,0.16),
+      rgba(245,212,138,0.06)
+    );
+  padding:18px 20px;
+  border-radius:16px;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(12px);
+  border:1px solid var(--border-subtle);
+}
+
+.brand{
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+
+.logo{
+  width:64px;
+  height:64px;
+  border-radius:16px;
+  background:
+    conic-gradient(from 180deg at 50% 50%,
+      var(--accent-gold) 0deg,
+      var(--accent-gold-soft) 120deg,
+      #ffffff 210deg,
+      var(--accent-gold) 360deg);
+  display:grid;
+  place-items:center;
+  font-weight:700;
+  color:#111827;
+  font-size:20px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
+
+.brand h1{
+  margin:0;
+  font-size:clamp(18px,3.2vw,26px);
+  letter-spacing:0.4px;
+}
+
+.brand p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* ----------------------
+   Navigation
+   ---------------------- */
+nav.main-nav{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+
+nav a{
+  color:var(--text-main);
+  text-decoration:none;
+  font-weight:600;
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:14px;
+  border:1px solid transparent;
+  transition:
+    background .18s ease,
+    border-color .18s ease,
+    color .18s ease,
+    transform .14s ease;
+}
+
+nav a:hover{
+  background:rgba(0,0,0,0.03);
+  border-color:var(--border-subtle);
+  transform:translateY(-1px);
+}
+
+@media (prefers-color-scheme: dark) {
+  nav a{
+    color:#e5e7eb;
+  }
+  nav a:hover{
+    background:rgba(249,250,251,0.04);
+  }
+}
+
+/* Mobile hamburger */
+.hamburger{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.hambtn{
+  background:transparent;
+  border:0;
+  color:inherit;
+  padding:8px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* ----------------------
+   Hero
+   ---------------------- */
+.hero{
+  display:grid;
+  gap:18px;
+  align-items:center;
+  margin-top:22px;
+}
+
+.hero-inner{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.hero h2{
+  margin:0;
+  font-size:clamp(22px,5.4vw,36px);
+  letter-spacing:0.2px;
+}
+
+.hero p{
+  margin:0;
+  color:var(--muted);
+  max-width:70ch;
+}
+
+/* CTA buttons */
+.cta{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:10px 18px;
+  border-radius:999px;
+  border:0;
+  font-weight:600;
+  cursor:pointer;
+  font-size:14px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  transition:
+    transform .14s ease,
+    box-shadow .18s ease,
+    background .18s ease,
+    color .18s ease;
+}
+
+.btn-primary{
+  background:linear-gradient(120deg,var(--accent-gold-soft),var(--accent-gold));
+  color:#111827;
+  box-shadow:0 14px 30px rgba(0,0,0,0.16);
+}
+
+.btn-primary:hover{
+  transform:translateY(-1px);
+  box-shadow:0 18px 40px rgba(0,0,0,0.22);
+}
+
+.btn-outline{
+  background:transparent;
+  border:1px solid var(--border-subtle);
+  color:var(--muted);
+}
+
+.btn-outline:hover{
+  background:rgba(0,0,0,0.02);
+}
+
+/* ----------------------
+   Layout / grid
+   ---------------------- */
+.grid{
+  display:grid;
+  gap:20px;
+  grid-template-columns:1fr;
+}
+
+/* ----------------------
+   Cards
+   ---------------------- */
+.card{
+  background:var(--card);
+  padding:18px;
+  border-radius:var(--radius);
+  box-shadow: var(--shadow-soft);
+  border:1px solid var(--border-subtle);
+}
+
+.card h3{
+  margin:0 0 6px 0;
+}
+
+.card p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* ----------------------
+   Project grid
+   ---------------------- */
+.projects{
+  display:grid;
+  gap:14px;
+}
+
+.project-card{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+
+.project-thumb{
+  width:84px;
+  height:64px;
+  border-radius:12px;
+  flex-shrink:0;
+  background:
+    linear-gradient(135deg,
+      rgba(245,212,138,0.22),
+      rgba(212,175,55,0.5));
+  display:grid;
+  place-items:center;
+  font-weight:600;
+  font-size:13px;
+  color:#111827;
+}
+
+/* ----------------------
+   Footer
+   ---------------------- */
+footer{
+  margin-top:28px;
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* ----------------------
+   Responsive: desktop
+   ---------------------- */
+@media(min-width:900px){
+  .wrap{padding:28px}
+  .hero{grid-template-columns: 1fr 420px}
+  .grid{grid-template-columns: 1fr 360px; gap:28px}
+  .projects{grid-template-columns: 1fr 1fr}
+  nav.main-nav{display:flex}
+  .hambtn{display:none}
+}
+
+/* ----------------------
+   Responsive: very small phones
+   ---------------------- */
+@media(max-width:420px){
+  .logo{
+    width:54px;
+    height:54px;
+    font-size:18px;
+  }
+  .brand h1{font-size:18px}
+}
+
+/* ----------------------
+   Small helpers
+   ---------------------- */
+.muted{color:var(--muted)}
+
+a.external{
+  color:var(--accent-gold);
+  text-decoration:none;
+  font-weight:500;
+}
+
+a.external:hover{
+  text-decoration:underline;
+}
+
+.link-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+/* ----------------------
+   Subtle animations
+   ---------------------- */
+.reveal{
+  opacity:0;
+  transform:translateY(8px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+/* ----------------------
+   Accessibility
+   ---------------------- */
+:focus{
+  outline:2px solid rgba(212,175,55,0.45);
+  outline-offset:2px;
+}
+
+/* Sticky side card on desktop */
+.side-card{
+  position:sticky;
+  top:28px;
+}
