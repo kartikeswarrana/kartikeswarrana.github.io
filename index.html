@@ -1,76 +1,189 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kartikeswar Rana | Homepage</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header { background: #2c3e50; color: white; padding: 20px; text-align: center; }
-    nav { background: #34495e; padding: 10px; text-align: center; }
-    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-    nav a:hover { text-decoration: underline; }
-    section { padding: 40px; max-width: 900px; margin: auto; }
-    footer { background: #2c3e50; color: white; text-align: center; padding: 10px; margin-top: 20px; }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css">
+  <title>Kartikeswar Rana — MSc Physics</title>
+  <meta name="description" content="Kartikeswar Rana — MSc Physics | Tutor | Research & Simulations" />
+  
 </head>
 <body>
+  <div class="wrap">
 
-<header>
-  <h1>Kartikeswar Rana</h1>
-  <p>MSc Physics | Tutor | Aspiring Researcher</p>
-</header>
+    <header class="site-header" role="banner">
+      <div class="brand">
+        <div class="logo" aria-hidden>KR</div>
+        <div>
+          <h1>Kartikeswar Rana</h1>
+          <p class="muted">MSc Physics · Tutor · Computational physics & simulations</p>
+        </div>
+      </div>
 
-<nav>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#projects">Projects</a>
-  <a href="#blog">Blog</a>
-  <a href="#contact">Contact</a>
-</nav>
+      <div style="display:flex;align-items:center;gap:12px">
+        <nav class="main-nav" role="navigation" aria-label="Main navigation">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#blog">Blog</a>
+          <a href="#contact">Contact</a>
+        </nav>
 
-<section id="home">
-  <h2>Welcome</h2>
-  <p>Welcome to my academic homepage! Here, I share my research interests, projects, and learning resources in physics and mathematics.</p>
-</section>
+        <div class="hamburger">
+          <button class="hambtn" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu">
+            ☰
+          </button>
+        </div>
+      </div>
+    </header>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>I am Kartikeswar Rana, currently pursuing MSc in Physics at FM University, Odisha. My academic focus includes computational physics, mathematical physics, and preparation for competitive exams like GATE, JEST, and CSIR NET.</p>
-</section>
+    <main>
+      <section id="home" class="hero reveal">
+        <div class="hero-inner">
+          <h2>Hi — I'm Kartikeswar. I build physics simulations, visualisations, and tutor maths.</h2>
+          <p>I combine computational tools with physical insight to make learning and research engaging. Scroll down to view projects, simulations, and resources — or jump straight to contact to collaborate.</p>
 
-<section id="projects">
-  <h2>Projects</h2>
-  <ul>
-    <li> <a href="qm/1d_qm_well.html"> <b>1D Infinite Potential Well</b></a> - Using the finite difference method, i have calculated the eigenfunctions and eigenenergies for a particle in a one-dimensional infinite potential well.</li>
-    <li> <a href="qm/1d_qm_harmonic.html"><b>1D Harmonic Potential</b></a> - i have solved for the eigenfunctions and eigenvalues (energies) of the 1D quantum harmonic oscillator using the finite difference method.</li>
-    <li><a href="plots/plot.html"><b>Plots</b></a></li>
-    <li><b>Simulations</b></li>
-    <ul>
-    <li><a href="graphics/lissajousvar (1).html">Lissajous Figures</a></li>
-    <li><a href="graphics/nbody.html">N-Body in central force (N=10)</a></li>
-    <li><a href="graphics/linearharmonic.html">Linear Harmonic Motion</a></li>
-    <li><a href="graphics/doublependulum.html">Double Pendulum</a></li>
-    <li><a href="graphics/pendulummotion (1).html">Pendulum Motion</a></li>
-    </ul>
-  </ul>
-</section>
+          <div class="cta">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-outline" href="#contact">Contact Me</a>
+          </div>
 
-<section id="blog">
-  <h2>Blog</h2>
-  <p>Coming soon!</p>
-</section>
+          <div style="margin-top:12px" class="muted">Available for tutoring (Class 11 & 12 Mathematics) — open to research collaborations.</div>
+        </div>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:rana.kartikeswar03@gmail.com">rana.kartikeswar03@gmail.com</a></p>
-  <p>GitHub: <a href="https://github.com/kartikeswarrana">github.com/kartikeswarrana</a></p>
-  <p><a href="www.linkedin.com/in/kartikeswar-rana-9a4a62244">Linkedin Profile</a></p>
-</section>
+        <aside class="card side-card">
+          <h3>Quick stats</h3>
+          <p class="muted">MSc Physics — FM University, Odisha<br>All Odisha Rank: <strong>53</strong> (CPET-24)</p>
+          <div style="height:12px"></div>
+          <div class="link-row">
+            <a class="btn btn-primary" href="https://github.com/kartikeswarrana" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn btn-outline" href="mailto:rana.kartikeswar03@gmail.com">Email</a>
+          </div>
+        </aside>
+      </section>
 
-<footer>
-  <p>© 2025 Kartikeswar Rana</p>
-</footer>
+      <div class="grid" style="margin-top:26px">
+        <section id="about" class="card reveal">
+          <h3>About Me</h3>
+          <p>I am pursuing an MSc in Physics at FM University, Odisha. My interests include computational physics, mathematical physics and building interactive simulations (WebVPython / JavaScript). I also prepare for competitive exams (GATE, JEST, CSIR NET) and tutor higher-secondary mathematics.</p>
 
+          <h4 style="margin-top:16px">Skills & tools</h4>
+          <p class="muted">Python (numpy, matplotlib), Web (JavaScript, WebVPython), numerical methods, finite difference, ODE integrators, LaTeX.</p>
+
+          <h4 style="margin-top:16px">Teaching</h4>
+          <p class="muted">Tutor for Class 11 & 12 Mathematics. I emphasise conceptual clarity and problem-solving techniques useful for competitive exams.</p>
+        </section>
+
+        <aside class="card reveal">
+          <h3>Contact</h3>
+          <p class="muted">Email: <a class="external" href="mailto:rana.kartikeswar03@gmail.com">rana.kartikeswar03@gmail.com</a></p>
+          <p class="muted">GitHub: <a class="external" href="https://github.com/kartikeswarrana" target="_blank" rel="noopener">github.com/kartikeswarrana</a></p>
+
+
+          <div style="height:12px"></div>
+          <h4>Office hours</h4>
+          <p class="muted">Flexible — evenings (IST). Message me on email for scheduling.</p>
+        </aside>
+      </div>
+
+      <section id="projects" class="card projects reveal" style="margin-top:20px">
+        <h3>Featured Projects</h3>
+        <div style="height:8px"></div>
+
+        <div class="project-card">
+          <div class="project-thumb">QM</div>
+          <div>
+            <strong><a href="qm/1d_qm_well.html" class="external">1D Infinite Potential Well</a></strong>
+            <div class="muted">Numerical eigenfunctions & energies using finite-difference method. Interactive plots included.</div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-thumb">HO</div>
+          <div>
+            <strong><a href="qm/1d_qm_harmonic.html" class="external">1D Harmonic Oscillator</a></strong>
+            <div class="muted">Finite-difference solution for eigenstates — visualisations of wavefunctions and ladder operations.</div>
+          </div>
+        </div>
+        
+
+        <div class="project-card">
+          <div class="project-thumb">PT</div>
+          <div>
+            <strong><a href="plots/plot.html" class="external">Plots</a></strong>
+            <div class="muted">Collection of physics & maths visualisations (phase plots, complex plane, parametric figures).</div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-thumb">SG</div>
+          <div>
+            <strong><a href="graphics/nbody.html" class="external">N-Body (central force)</a></strong>
+            <div class="muted">Interactive N-body simulation (N=10) with energy checks and visual trails.</div>
+          </div>
+        </div>
+
+      </section>
+
+      <section id="blog" class="card reveal" style="margin-top:18px">
+        <h3>Blog</h3>
+        <p class="muted">Short technical posts, notebooks and problem walkthroughs — coming soon. If you'd like early access to notes or a tutorial, email me.</p>
+      </section>
+
+    </main>
+
+    <footer class="muted">
+      <p>© 2025 Kartikeswar Rana · Built with care · Mobile-first responsive layout</p>
+    </footer>
+
+    <!-- Mobile menu (hidden on desktop) -->
+    <div id="mobileMenu" style="display:none; margin-top:12px" aria-hidden="true">
+      <div class="card">
+        <nav style="display:flex;flex-direction:column;gap:8px">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#blog">Blog</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Simple JS to handle mobile menu and reveal on scroll
+    (function(){
+      const menuBtn = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      menuBtn.addEventListener('click', ()=>{
+        const open = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', String(!open));
+        if(open){ mobileMenu.style.display='none'; mobileMenu.setAttribute('aria-hidden','true') }
+        else { mobileMenu.style.display='block'; mobileMenu.setAttribute('aria-hidden','false') }
+      });
+
+      // reveal on scroll (simple)
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(!prefersReduced){
+        const reveals = document.querySelectorAll('.reveal');
+        const onScroll = ()=>{
+          const h = window.innerHeight;
+          reveals.forEach(el=>{
+            const r = el.getBoundingClientRect();
+            if(r.top < h - 50){ el.classList.add('show') }
+          })
+        }
+        onScroll();
+        window.addEventListener('scroll', onScroll, {passive:true});
+      } else {
+        document.querySelectorAll('.reveal').forEach(e=>e.classList.add('show'));
+      }
+
+      // make external links open in new tab (safety)
+      document.querySelectorAll('a.external').forEach(a=>{ a.setAttribute('target','_blank'); a.setAttribute('rel','noopener noreferrer') });
+
+    })();
+  </script>
 </body>
 </html>
