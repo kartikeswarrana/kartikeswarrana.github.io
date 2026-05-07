@@ -1,0 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: #0f172a;
+  color: #f8fafc;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+}
+
+section {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 72px 6%;
+}
+
+h1 {
+  font-size: clamp(3rem, 5vw, 4.2rem);
+  margin-bottom: 16px;
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  margin-bottom: 18px;
+}
+
+h3 {
+  font-size: clamp(1.2rem, 1.7vw, 1.5rem);
+  margin-bottom: 16px;
+}
+
+p,
+li {
+  line-height: 1.75;
+  color: #e2e8f0;
+}
+
+.hero-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: calc(100vh - 160px);
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-text p {
+  max-width: 580px;
+  margin-top: 16px;
+  font-size: 1.05rem;
+}
+
+.hero-atom {
+  flex: 1;
+  min-width: 320px;
+  min-height: 380px;
+  height: clamp(320px, 45vh, 520px);
+}
+
+.hero-atom canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.cert-card {
+  padding: 22px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.2);
+}
+
+.cert-card h3 {
+  margin-bottom: 10px;
+}
+
+.cert-card p {
+  margin-bottom: 10px;
+}
+
+.skills-section .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  justify-content: center;
+  gap: 12px;
+}
+
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1rem;
+  min-width: 0;
+  max-width: 220px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #f8fafc;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  text-align: center;
+  white-space: normal;
+  word-break: break-word;
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.skill-chip:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 980px) {
+  section {
+    padding: 60px 5%;
+  }
+
+  .hero-layout {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: auto;
+  }
+
+  .hero-atom {
+    width: 100%;
+    height: 420px;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 0.96rem;
+  }
+
+  section {
+    padding: 48px 5%;
+  }
+
+  .hero-layout {
+    gap: 24px;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  h2 {
+    font-size: 2.1rem;
+  }
+
+  .hero-atom {
+    height: 320px;
+  }
+
+  .skills-section .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
