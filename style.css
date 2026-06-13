@@ -169,6 +169,28 @@ nav {
     width: 100%;
 }
 
+.nav-links a.nav-cv-btn {
+    border: 1px solid var(--primary);
+    padding: 0.4rem 1.1rem;
+    border-radius: 6px;
+    color: var(--primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition-fast);
+}
+
+.nav-links a.nav-cv-btn:hover {
+    background: var(--primary-glow);
+    box-shadow: 0 0 15px var(--primary-glow);
+    transform: translateY(-1px);
+    color: var(--text-primary);
+}
+
+.nav-links a.nav-cv-btn::after {
+    display: none;
+}
+
 .menu-toggle {
     display: none;
     background: none;
