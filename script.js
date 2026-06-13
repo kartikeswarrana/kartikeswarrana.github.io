@@ -329,11 +329,76 @@ function initMobileNav() {
 }
 
 
+// Animate Tab Favicon (Atom animation)
+function initAtomFavicon() {
+    const canvas = document.createElement('canvas');
+    canvas.width = 32;
+    canvas.height = 32;
+    const ctx = canvas.getContext('2d');
+    const link = document.getElementById('favicon');
+    if (!link) return;
+    
+    let angle = 0;
+    
+    function drawFavicon() {
+        ctx.clearRect(0, 0, 32, 32);
+        const cx = 16;
+        const cy = 16;
+        
+        // Draw orbits
+        ctx.lineWidth = 1.2;
+        ctx.strokeStyle = 'rgba(0, 242, 254, 0.4)';
+        
+        const drawOrbit = (rotAngle) => {
+            ctx.save();
+            ctx.translate(cx, cy);
+            ctx.rotate(rotAngle);
+            ctx.beginPath();
+            ctx.ellipse(0, 0, 13, 4, 0, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.restore();
+        };
+        
+        drawOrbit(0);
+        drawOrbit(Math.PI / 3);
+        drawOrbit(-Math.PI / 3);
+        
+        // Draw nucleus (center)
+        ctx.fillStyle = '#b927fc';
+        ctx.beginPath();
+        ctx.arc(cx, cy, 3.5, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Draw electrons
+        ctx.fillStyle = '#00f2fe';
+        const drawElectron = (rotAngle, phase) => {
+            ctx.save();
+            ctx.translate(cx, cy);
+            ctx.rotate(rotAngle);
+            const ex = Math.cos(angle + phase) * 13;
+            const ey = Math.sin(angle + phase) * 4;
+            ctx.beginPath();
+            ctx.arc(ex, ey, 2, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        };
+        
+        drawElectron(0, 0);
+        drawElectron(Math.PI / 3, (Math.PI * 2) / 3);
+        drawElectron(-Math.PI / 3, (Math.PI * 4) / 3);
+        
+        link.href = canvas.toDataURL('image/png');
+        angle += 0.06;
+    }
+    
+    setInterval(drawFavicon, 33); // ~30 FPS for a smoother, premium visual experience
+}
+
 // Load initialization
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Start main Solar System animation
     new SolarSystemAnimation('physics-canvas');
-
+    
     // 2. Dynamic mouse spotlighting
     initCardSpotlight();
 
@@ -342,4 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. Mobile toggle
     initMobileNav();
+
+    // 5. Start animated favicon
+    initAtomFavicon();
 });
