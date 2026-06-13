@@ -1,14 +1,323 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kartikeswar Rana</title>
-    <script type="module" crossorigin src="/assets/index-h8WfxELJ.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DawQYGfh.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Kartikeswar Rana's Physics & Computation Portfolio. Researching Primordial Black Hole evolution, computational mechanics, and mathematical physics simulations.">
+    <title>Kartikeswar Rana | Physics & Computational Simulations Portfolio</title>
+
+    <!-- CSS files -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Background glow elements -->
+    <div class="bg-glows">
+        <div class="glow-1"></div>
+        <div class="glow-2"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <i class="fa-solid fa-atom"></i>
+                <span>Kartikeswar.</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#works">Works</a></li>
+                <!-- <li><a href="#skills">Skills</a></li> -->
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section / Solar System Background -->
+    <section id="hero">
+        <!-- Animated Solar System Canvas Background -->
+        <canvas id="physics-canvas"></canvas>
+
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-flask-vial"></i>
+                    <span>M.Sc. Physics Student</span>
+                </div>
+                <h1 class="hero-title">Exploring the Universe through <span class="text-gradient">Simulations.</span>
+                </h1>
+                <p class="hero-desc">I am an M.Sc. Physics student specializing in computational cosmology and numerical
+                    simulations. I build interactive tools to model physical phenomena like primordial black holes.</p>
+                <div class="hero-btns">
+                    <a href="#works" class="btn btn-primary">
+                        <span>Explore My Works</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Get In Touch</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="reveal">
+        <div class="section-header">
+            <span class="section-tag">Academic Profile</span>
+            <h2 class="section-title">Bridging Theory & Computation</h2>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-info">
+                <div class="glass-card">
+                    <h3>Who I Am</h3>
+                    <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.95rem;">
+                        I am a motivated M.Sc. Physics student at Fakir Mohan University with a strong foundation in
+                        physics and mathematics. I focus on building clear conceptual understanding, analytical
+                        thinking, and using computational tools like Python and LaTeX to model physical systems. In
+                        addition, I teach higher secondary mathematics, emphasizing conceptual clarity and professional
+                        document typesetting.
+                    </p>
+
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <div class="stat-number">7.19</div>
+                            <div class="stat-label">M.Sc. OGPA</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">Rank 53</div>
+                            <div class="stat-label">CPET 2024 (Physics)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-text">
+                <h3>My Core Research & Academic Focus</h3>
+                <div class="research-interests">
+                    <div class="interest-item">
+                        <div class="interest-icon">
+                            <i class="fa-solid fa-circle-dot"></i>
+                        </div>
+                        <div class="interest-info">
+                            <h4>Cosmology & Primordial Black Holes</h4>
+                            <p>Analyzing the lifetime and evolution of Primordial Black Holes (PBHs) under Hawking
+                                evaporation and cosmological accretion using Python numerical solvers.</p>
+                        </div>
+                    </div>
+
+                    <div class="interest-item">
+                        <div class="interest-icon"
+                            style="background: rgba(0, 242, 254, 0.1); color: var(--primary); border-color: rgba(0, 242, 254, 0.2);">
+                            <i class="fa-solid fa-calculator"></i>
+                        </div>
+                        <div class="interest-info">
+                            <h4>Numerical & Computational Physics</h4>
+                            <p>Solving differential equations, modeling biophysics multiscale interactions, and using
+                                applied numerical solvers.</p>
+                        </div>
+                    </div>
+
+                    <div class="interest-item">
+                        <div class="interest-icon">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                        <div class="interest-info">
+                            <h4>Mathematics Education & LaTeX Typesetting</h4>
+                            <p>Developing high-quality mathematical worksheets, custom slide decks, and exam papers with
+                                LaTeX to enhance student understanding in calculus and geometry.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works / Projects Section -->
+    <section id="works" class="reveal">
+        <div class="section-header">
+            <span class="section-tag">Interactive Research & Labs</span>
+            <h2 class="section-title">Featured Works & Presentations</h2>
+        </div>
+
+        <div class="works-grid">
+            <!-- Project 1 -->
+            <div class="glass-card project-card">
+                <div class="project-tags">
+                    <span class="project-tag">M.Sc. Thesis</span>
+                    <span class="project-tag">Python</span>
+                    <span class="project-tag">Cosmology</span>
+                    <span class="project-tag">Numerical ODE</span>
+                </div>
+                <h3 class="project-title">Primordial Black Hole Evolution</h3>
+                <p class="project-desc">My master's thesis research modeling the lifetime, evaporation, and accretion
+                    curves of Primordial Black Holes using Python solvers, supervised by Dr. Bibekananda Nayak.</p>
+                <div class="project-links">
+                    <a href="https://github.com/kartikeswar03" target="_blank" class="project-link">
+                        <i class="fa-brands fa-github"></i> View Research
+                    </a>
+                    <a href="#about" class="project-link">
+                        <i class="fa-solid fa-graduation-cap"></i> FM University
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 2 (Computational Physics Sandbox) -->
+            <div class="glass-card project-card">
+                <div class="project-tags">
+                    <span class="project-tag">Python</span>
+                    <span class="project-tag">Nonlinear Dynamics</span>
+                    <span class="project-tag">Numerical ODE</span>
+                    <span class="project-tag">Marimo</span>
+                </div>
+                <h3 class="project-title">Computational Physics Sandbox</h3>
+                <p class="project-desc">Explorations in nonlinear dynamics: featuring an interactive Logistic Map &
+                    Bifurcation solver (Marimo/NumPy) and numerical Lagrangian modeling of the Oscillating Atwood
+                    Machine (OAM) using scipy.solve_ivp.</p>
+                <div class="project-links">
+                    <a href="https://github.com/kartikeswarrana/computational_physics" target="_blank"
+                        class="project-link">
+                        <i class="fa-brands fa-github"></i> GitHub Repository
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 3 (Josephus Problem Solver) -->
+            <div class="glass-card project-card">
+                <div class="project-tags">
+                    <span class="project-tag">Marimo</span>
+                    <span class="project-tag">Math Visualization</span>
+                    <span class="project-tag">Python</span>
+                </div>
+                <h3 class="project-title">Josephus Problem Solver</h3>
+                <p class="project-desc">An interactive mathematical model of the classic Josephus permutations. Built
+                    using the Marimo reactive python framework to dynamically animate circular step elimination
+                    sequences in real time.</p>
+                <div class="project-links">
+                    <a href="https://github.com/kartikeswarrana/marimo/tree/main/josephus-problem" target="_blank"
+                        class="project-link">
+                        <i class="fa-brands fa-github"></i> Josephus Repo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="glass-card project-card">
+                <div class="project-tags">
+                    <span class="project-tag">LaTeX</span>
+                    <span class="project-tag">Worksheets</span>
+                    <span class="project-tag">Online Teaching</span>
+                </div>
+                <h3 class="project-title">Tutor for 11th/12th Mathematics</h3>
+                <p class="project-desc">Designed conceptual questions, homework sets, and lecture handouts using
+                    professional LaTeX and PowerPoint packages during my role as a mathematics tutor at Utkala Physics.
+                </p>
+                <div class="project-links">
+                    <a href="https://linkedin.com/in/kartikeswar03" target="_blank" class="project-link">
+                        <i class="fa-solid fa-chalkboard-user"></i> Utkala Physics
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="glass-card project-card">
+                <div class="project-tags">
+                    <span class="project-tag">Poster Presentation</span>
+                    <span class="project-tag">Conferences</span>
+                    <span class="project-tag">Numerical Methods</span>
+                </div>
+                <h3 class="project-title">Academic Presentations</h3>
+                <p class="project-desc">Showcased research on PBH Dynamics & Accretion at the 42nd Annual Convention of
+                    OPS (Berhampur University), VSSUT Sambalpur, and Fakir Mohan University (Feb-Mar 2026).</p>
+                <div class="project-links">
+                    <a href="https://linkedin.com/in/kartikeswar03" target="_blank" class="project-link">
+                        <i class="fa-solid fa-network-wired"></i> LinkedIn Updates
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section (Temporarily hidden at user request. Let us know when to re-enable and what to include!) -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="reveal">
+        <div class="section-header">
+            <span class="section-tag">Collab / Research</span>
+            <h2 class="section-title">Let's Synthesize Ideas</h2>
+        </div>
+
+        <div class="contact-container glass-card">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <p>Have an interesting research problem in computational physics or cosmology? Or looking for a tutor or
+                    collaborator? Feel free to reach out for collaborations, discussions, or research inquiries.</p>
+
+                <div class="contact-links">
+                    <a href="mailto:rana.kartikeswar03@gmail.com" class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <span>rana.kartikeswar03@gmail.com</span>
+                    </a>
+                    <a href="tel:+917894604259" class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <span>+91 7894604259</span>
+                    </a>
+                    <a href="https://linkedin.com/in/kartikeswar03" target="_blank" class="contact-item">
+                        <div class="contact-icon"
+                            style="color: var(--secondary); background: rgba(280,100,65,0.1); border-color: rgba(280,100,65,0.2);">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </div>
+                        <span>linkedin.com/in/kartikeswar03</span>
+                    </a>
+                    <a href="https://kartikeswarrana.github.io" target="_blank" class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <span>kartikeswarrana.github.io</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-copy">
+                &copy; 2026 Kartikeswar Rana. Vibe Coded with AI <i class="fa-solid fa-code"
+                    style="color: var(--primary);"></i>
+            </div>
+            <div class="footer-socials">
+                <a href="https://github.com/kartikeswar03" target="_blank" class="social-btn" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/kartikeswar03" target="_blank" class="social-btn"
+                    aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="mailto:rana.kartikeswar03@gmail.com" class="social-btn" aria-label="Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script file -->
+    <script src="script.js"></script>
+</body>
+
 </html>
