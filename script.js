@@ -5,12 +5,12 @@ class SolarSystemAnimation {
         if (!this.canvas) return;
         this.ctx = this.canvas.getContext('2d');
         this.paused = false;
-        
+
         this.stars = [];
         this.planets = [];
         this.sunGlow = 0;
         this.sunGlowDir = 1;
-        
+
         this.init();
         this.resize();
         this.createStars();
@@ -274,12 +274,12 @@ function initScrollReveal() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                
+
                 // If it's the skills container, trigger skill bars filling
                 if (entry.target.classList.contains('skills-container')) {
                     animateSkillBars();
                 }
-                
+
                 observer.unobserve(entry.target);
             }
         });
@@ -306,7 +306,7 @@ function animateSkillBars() {
 function initMobileNav() {
     const toggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-    
+
     if (toggle && navLinks) {
         toggle.addEventListener('click', () => {
             const isVisible = navLinks.style.display === 'flex';
@@ -333,7 +333,7 @@ function initMobileNav() {
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Start main Solar System animation
     new SolarSystemAnimation('physics-canvas');
-    
+
     // 2. Dynamic mouse spotlighting
     initCardSpotlight();
 
