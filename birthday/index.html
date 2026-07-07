@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, My Love!</title>
+  <meta name="description" content="A sweet and romantic birthday wish website filled with memories, love messages, and interactive surprises.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Canvas for Floating Hearts -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Background Music Element -->
+  <audio id="bg-music" loop>
+    <source src="https://assets.mixkit.co/music/preview/mixkit-beautiful-dream-2484.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- 1. INTRO OVERLAY (GIFT BOX) -->
+  <div class="intro-overlay" id="intro-overlay">
+    <div class="gift-box-wrapper" id="gift-box" role="button" aria-label="Open Gift Box">
+      <!-- Elegantly Designed SVG Gift Box -->
+      <svg class="gift-box-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- Box Base -->
+        <rect x="25" y="45" width="50" height="45" fill="#ff527b" rx="4" />
+        <rect x="20" y="38" width="60" height="10" fill="#e84393" rx="3" />
+        <!-- Ribbon Vertical -->
+        <rect x="46" y="38" width="8" height="52" fill="#e5b858" />
+        <!-- Ribbon Horizontal -->
+        <rect x="25" y="60" width="50" height="8" fill="#e5b858" />
+        <!-- Ribbon Bow Left -->
+        <path d="M50 38 C35 25, 25 38, 50 38 Z" fill="#e5b858" stroke="#d4af37" stroke-width="0.5" />
+        <!-- Ribbon Bow Right -->
+        <path d="M50 38 C65 25, 75 38, 50 38 Z" fill="#e5b858" stroke="#d4af37" stroke-width="0.5" />
+        <!-- Ribbon Center Knot -->
+        <circle cx="50" cy="38" r="6" fill="#d4af37" />
+        <!-- Inner Glow Details -->
+        <circle cx="50" cy="38" r="3" fill="#fff" opacity="0.7" />
+      </svg>
+    </div>
+    <h1 class="intro-title">A Special Gift For You</h1>
+    <p class="click-prompt">Click the Box to Open</p>
+  </div>
+
+  <!-- FLOATING AUDIO CONTROL BUTTON -->
+  <button class="audio-control-btn" id="audio-toggle" aria-label="Toggle Background Music">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <!-- Play Icon -->
+      <path class="play-icon" d="M8 5v14l11-7z"/>
+      <!-- Pause Icon -->
+      <path class="pause-icon" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+    </svg>
+  </button>
+
+  <!-- MAIN APP CONTAINER -->
+  <main class="app-container">
+
+    <!-- 2. HERO HEADER SECTION -->
+    <section class="hero-section" id="home">
+      <p class="hero-subtitle">To My Favorite Person</p>
+      <h2 class="hero-title">Happy Birthday,<br>My Love</h2>
+      <button class="scroll-btn" onclick="document.getElementById('letter').scrollIntoView({behavior: 'smooth'})">
+        Scroll Down
+      </button>
+    </section>
+
+    <!-- 3. LOVE LETTER / ENVELOPE SECTION -->
+    <section class="letter-section" id="letter">
+      <div class="section-header">
+        <p class="section-subtitle">A letter from my heart</p>
+        <h3 class="section-title">Just For You</h3>
+      </div>
+
+      <div class="envelope-wrapper" id="envelope">
+        <!-- Envelope Flap -->
+        <div class="envelope-flap-top"></div>
+        
+        <!-- Heart Seal -->
+        <div class="envelope-seal">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+        </div>
+
+        <!-- Hidden Letter Box -->
+        <div class="letter-content-box" id="letter-content">
+          <div class="letter-text" id="typed-text"></div>
+          <span class="letter-cursor" id="typewriter-cursor"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. POLAROID MEMORY GRID -->
+    <section class="gallery-section" id="memories">
+      <div class="section-header">
+        <p class="section-subtitle">Every moment with you is a treasure</p>
+        <h3 class="section-title">Our Sweet Journey</h3>
+      </div>
+
+      <!-- Polaroid Cards Container (Populated via JS) -->
+      <div class="polaroid-grid" id="polaroid-grid"></div>
+    </section>
+
+    <!-- LIGHTBOX / DIALOG VIEWER MODAL -->
+    <div class="lightbox-modal" id="lightbox">
+      <div class="lightbox-content">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close Lightbox">&times;</button>
+        <div class="lightbox-img-wrapper">
+          <img class="lightbox-img" id="lightbox-img" src="" alt="Zoomed memory">
+        </div>
+        <p class="lightbox-note" id="lightbox-note"></p>
+      </div>
+    </div>
+
+    <!-- 5. LOVE CAROUSEL SECTION -->
+    <section class="carousel-section" id="reasons">
+      <div class="section-header">
+        <p class="section-subtitle">A few little notes</p>
+        <h3 class="section-title">Reasons I Love You</h3>
+      </div>
+
+      <!-- Carousel Cards Container -->
+      <div class="carousel-container" id="carousel-cards">
+        <!-- Cards dynamically loaded via JS -->
+      </div>
+
+      <!-- Controls -->
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="prev-card" aria-label="Previous card">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+          </svg>
+        </button>
+        <button class="carousel-btn" id="next-card" aria-label="Next card">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- 6. VIRTUAL BIRTHDAY CAKE -->
+    <section class="cake-section" id="cake">
+      <div class="section-header">
+        <p class="section-subtitle">Time to celebrate!</p>
+        <h3 class="section-title">Make a Wish</h3>
+      </div>
+
+      <p class="blow-hint" id="blow-hint">Click the candles to blow them out!</p>
+
+      <div class="cake-container" id="cake-container">
+        <!-- SVG Interactive Birthday Cake -->
+        <svg class="cake-svg" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+          <!-- Cake Stand/Plate -->
+          <ellipse cx="100" cy="140" rx="75" ry="12" fill="#d1ccc0" />
+          <ellipse cx="100" cy="136" rx="75" ry="12" fill="#f5f6fa" />
+
+          <!-- Bottom Layer -->
+          <path d="M35 100 L35 130 A65 10 0 0 0 165 130 L165 100 Z" fill="#ff7675" />
+          <ellipse cx="100" cy="100" rx="65" ry="10" fill="#ffeaa7" />
+
+          <!-- Frosting Drips (Bottom Layer) -->
+          <path d="M35 100 Q 45 112, 55 100 Q 65 110, 75 100 Q 85 112, 95 100 Q 105 110, 115 100 Q 125 112, 135 100 Q 145 110, 155 100 Q 165 112, 165 100 L165 105 A65 10 0 0 1 35 105 Z" fill="#ffeaa7" />
+
+          <!-- Top Layer -->
+          <path d="M50 70 L50 95 A50 8 0 0 0 150 95 L150 70 Z" fill="#ff7675" />
+          <ellipse cx="100" cy="70" rx="50" ry="8" fill="#fd79a8" />
+
+          <!-- Frosting Cream Dolls -->
+          <circle cx="55" cy="70" r="5" fill="#fff" />
+          <circle cx="70" cy="73" r="5" fill="#fff" />
+          <circle cx="85" cy="74" r="5" fill="#fff" />
+          <circle cx="100" cy="74" r="5" fill="#fff" />
+          <circle cx="115" cy="74" r="5" fill="#fff" />
+          <circle cx="130" cy="73" r="5" fill="#fff" />
+          <circle cx="145" cy="70" r="5" fill="#fff" />
+
+          <!-- Candles (SVG Rectangles) -->
+          <!-- Candle 1 (Left) -->
+          <rect x="75" y="45" width="6" height="20" fill="#74b9ff" rx="1" />
+          <line x1="78" y1="45" x2="78" y2="40" stroke="#2d3436" stroke-width="1.5" />
+          <!-- Candle 2 (Middle) -->
+          <rect x="97" y="42" width="6" height="22" fill="#a29bfe" rx="1" />
+          <line x1="100" y1="42" x2="100" y2="37" stroke="#2d3436" stroke-width="1.5" />
+          <!-- Candle 3 (Right) -->
+          <rect x="119" y="45" width="6" height="20" fill="#55efc4" rx="1" />
+          <line x1="122" y1="45" x2="122" y2="40" stroke="#2d3436" stroke-width="1.5" />
+
+          <!-- Flames (SVG Paths, animated in CSS and toggleable in JS) -->
+          <path id="flame-1" class="candle-flame" d="M78 40 C75 35, 75 30, 78 24 C81 30, 81 35, 78 40 Z" />
+          <path id="flame-2" class="candle-flame" d="M100 37 C97 32, 97 27, 100 21 C103 27, 103 32, 100 37 Z" />
+          <path id="flame-3" class="candle-flame" d="M122 40 C119 35, 119 30, 122 24 C125 30, 125 35, 122 40 Z" />
+        </svg>
+      </div>
+
+      <!-- Surprise Birthday Wish Card -->
+      <div class="wish-card" id="wish-card">
+        <h4 class="wish-title">Happy Birthday, My Sunshine!</h4>
+        <p class="wish-message">
+          May your day be as beautiful, bright, and amazing as you are to me. Thank you for filling my life with infinite joy, laughter, and love. Here's to making many more beautiful memories together. I love you more than words can express! ❤️
+        </p>
+      </div>
+    <!-- 7. SWEET SURPRISE SECTION -->
+    <section class="surprise-section" id="surprise">
+      <div class="section-header">
+        <p class="section-subtitle">Something extra for you</p>
+        <h3 class="section-title">A Sweet Surprise</h3>
+      </div>
+      
+      <p class="surprise-hint">Click on the magic gift cards below to reveal your surprises! 🎁</p>
+      
+      <div class="surprise-container">
+        <!-- Gift Card 1 -->
+        <div class="surprise-card" data-surprise="1">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="gift-icon">🎁</div>
+              <span class="open-label">Open Me</span>
+            </div>
+            <div class="card-back">
+              <h4 class="coupon-title">☕ Cozy Café Date</h4>
+              <p class="coupon-desc">Redeemable for a warm cup of coffee & dessert at your favorite spot. My treat!</p>
+              <div class="heart-badge">❤️</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gift Card 2 -->
+        <div class="surprise-card" data-surprise="2">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="gift-icon">💝</div>
+              <span class="open-label">Open Me</span>
+            </div>
+            <div class="card-back">
+              <h4 class="coupon-title">🎬 Movie Night Pass</h4>
+              <p class="coupon-desc">Redeemable for any movie night of your choice. I'll bring the popcorn & snacks!</p>
+              <div class="heart-badge">❤️</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gift Card 3 -->
+        <div class="surprise-card" data-surprise="3">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="gift-icon">⭐</div>
+              <span class="open-label">Open Me</span>
+            </div>
+            <div class="card-back">
+              <h4 class="coupon-title">✨ "Yes" Day Pass</h4>
+              <p class="coupon-desc">Redeemable for one full day where I will agree to all your plans, no questions asked!</p>
+              <div class="heart-badge">❤️</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="surprise-reset-container">
+        <button id="reset-surprises" class="reset-btn">Reset Surprises</button>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="love-footer">
+      Made with 
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+      by Kartik &copy; 2026
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
